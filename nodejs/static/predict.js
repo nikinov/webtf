@@ -19,6 +19,10 @@ async function loadModel(name) {
     model = undefined;
     model = await tf.loadLayersModel(`http://localhost:81/tfjs.models/${name}/model.json`);
     $(".progress-bar").hide();
+    console.log(name)
+    if (name === "MobileNet"){
+        document.getElementById("predict-button").innerHTML = '<button id="predict-button" class="btn btn-dark float-right">PREDICT</button>';
+    }
 }
 
 $("#predict-button").click(async function () {
